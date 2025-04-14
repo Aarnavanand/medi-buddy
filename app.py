@@ -13,91 +13,122 @@ except:
 # Embedded CSS with modern tech UI and turquoise palette
 st.markdown("""
     <style>
-        /* Layout container */
-        .main {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
+        /* Global reset & font */
+        body, html {
             font-family: 'Segoe UI', sans-serif;
+            background: #ecfdfd;
+            color: #333;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #d1f2eb;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1abc9c;
+            border-radius: 10px;
+        }
+
+        /* Main container */
+        .main {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
         }
 
         /* Title */
         .title {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #1ABC9C;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #1abc9c;
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            letter-spacing: -1px;
         }
 
-        /* Input text color */
+        /* Selectbox input text color */
         .stSelectbox > div > div {
-            color: white !important;
+            color: #1a1a1a !important;
         }
 
         /* Button styling */
         .stButton > button {
-            background-color: #1ABC9C;
+            background: linear-gradient(135deg, #1abc9c, #16a085);
             color: white;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: bold;
             border: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 8px;
-            transition: background 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
             margin-top: 1rem;
+            box-shadow: 0 6px 20px rgba(26, 188, 156, 0.3);
         }
 
         .stButton > button:hover {
-            background-color: #17A589;
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #17a589, #148f77);
+            box-shadow: 0 8px 24px rgba(26, 188, 156, 0.4);
         }
 
-        /* Card container */
+        /* Recommendation card */
         .card {
-            background: linear-gradient(145deg, #f0fdfa, #d0f0e9);
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 10px 20px rgba(26, 188, 156, 0.1);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 1.8rem 1.4rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 10px 30px rgba(26, 188, 156, 0.15);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(26, 188, 156, 0.2);
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(26, 188, 156, 0.2);
+            transform: scale(1.015);
+            box-shadow: 0 12px 36px rgba(26, 188, 156, 0.25);
         }
 
         .card h4 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            font-weight: 700;
             color: #117A65;
+            margin-bottom: 0.75rem;
         }
 
         /* Buy button inside card */
         .link-btn {
-            display: inline-block;
-            margin-top: 0.5rem;
-            background-color: #1ABC9C;
+            background: #1abc9c;
             color: white !important;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            border-radius: 8px;
             text-decoration: none !important;
-            font-size: 0.95rem;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            transition: background 0.3s ease;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
         .link-btn:hover {
-            background-color: #148F77;
-            color: white;
+            background: #148f77;
+            transform: scale(1.05);
         }
 
         /* Image styling */
         img {
-            border-radius: 14px;
-            margin-top: 2rem;
+            border-radius: 18px;
+            margin: 2rem auto 1rem auto;
+            display: block;
+            max-width: 100%;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -129,7 +160,8 @@ selected_medicine_name = st.selectbox(
 
 # Recommend button with icon
 if st.button("🔎 Recommend"):
-    recommendations = recommend(selected_medicine_name)
+    with st.spinner("Finding alternatives..."):
+        recommendations = recommend(selected_medicine_name)
     for idx, med in enumerate(recommendations, start=1):
         st.markdown(f"""
             <div class="card">
