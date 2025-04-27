@@ -1,4 +1,5 @@
-MediBuddy - Smart Medicine Recommender 🏥💊
+### MediBuddy - Smart Medicine Recommender 🏥💊
+
 MediBuddy is an intelligent medicine recommendation system designed to help users discover alternative medications similar to their prescribed or preferred medicines. Leveraging advanced machine learning techniques, MediBuddy analyzes a comprehensive medicine database and provides personalized, accurate recommendations based on similarity metrics.
 
 🚀 Project Overview
