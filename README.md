@@ -56,4 +56,6 @@ Descriptions
   UI icons and design inspired by modern healthcare applications
   E-commerce linking powered by PharmEasy
 
+Live on: https://medi-buddy.streamlit.app/
+
 "An AI-powered Smart Medicine Recommender built with Streamlit, helping users find alternative medications with a seamless e-commerce experience."
