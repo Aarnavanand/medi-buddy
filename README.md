@@ -68,3 +68,6 @@ Descriptions
 Live on: https://medi-buddy.streamlit.app/
 
 "An AI-powered Smart Medicine Recommender built with Streamlit, helping users find alternative medications with a seamless e-commerce experience."
+
+📜 License
+This project is licensed under the MIT License.
