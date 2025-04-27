@@ -25,10 +25,16 @@ MediBuddy is an intelligent medicine recommendation system designed to help user
 ```bash
 git clone https://github.com/Aarnavanand/medi-buddy
 cd medi-buddy
+```
 Install Dependencies
+```bash
   pip install -r requirements.txt
+```
+
 Run the Application
+```bash
   streamlit run app.py
+```
 
 🧑‍⚕️ How to Use
   Select a medicine name from the dropdown menu.  
