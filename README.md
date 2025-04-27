@@ -19,14 +19,16 @@ MediBuddy is an intelligent medicine recommendation system designed to help user
   
   Required Python packages (listed in requirements.txt)
   
-Installation
-  Clone the repository:
-  bash
-  Copy
-  Edit
-  git clone https://github.com/Aarnavanand/medi-buddy
-  cd medi-buddy
-  Install dependencies:
+📦 Installation
+### Clone the Repository
+
+```bash
+git clone https://github.com/Aarnavanand/medi-buddy
+cd medi-buddy
+Install Dependencies
+  pip install -r requirements.txt
+Run the Application
+  streamlit run app.py
 
 🧑‍⚕️ How to Use
   Select a medicine name from the dropdown menu.  
